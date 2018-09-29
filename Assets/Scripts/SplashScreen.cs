@@ -8,6 +8,12 @@ public class SplashScreen : MonoBehaviour {
 
 
 	// Use this for initialization
+
+	void Awake()
+	{
+		DontDestroyOnLoad(gameObject);
+	}
+
 	void Start ()
 	{
 		Invoke("LoadLevel", 2f);
