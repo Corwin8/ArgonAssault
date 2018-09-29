@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class ShipControls : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class ShipControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		float horizontalThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+		print(horizontalThrow);
 	}
 }
