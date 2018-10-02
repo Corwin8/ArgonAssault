@@ -153,6 +153,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114887188302611924, guid: 05654fa356db15d41866f8c9ecd74094,
+        type: 2}
+      propertyPath: positionPitchFactor
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887188302611924, guid: 05654fa356db15d41866f8c9ecd74094,
+        type: 2}
+      propertyPath: controlPitchFactor
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05654fa356db15d41866f8c9ecd74094, type: 2}
   m_IsPrefabAsset: 0
