@@ -6,11 +6,13 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class ShipControls : MonoBehaviour {
 
-	[Tooltip("In ms^-1")][Range(0, 8)] [SerializeField] float universalSpeed = 2f;
-	[Range(0, 5)] [SerializeField] float maxXOffset = 3f;
-	[Range(0, 5)] [SerializeField] float maxYOffset = 2f;
+	[Tooltip("In ms^-1")][Range(0, 8)] [SerializeField] float universalSpeed = 8f;
+	[Range(0, 5)] [SerializeField] float maxXOffset = 4f;
+	[Range(0, 5)] [SerializeField] float maxYOffset = 3f;
 	[SerializeField] float positionPitchFactor = -5f;
+	[SerializeField] float positionYawFactor = 5f;
 	[SerializeField] float controlPitchFactor = -30f;
+	[SerializeField] float controlRollFactor = -30f;
 
 
 	float xThrow, yThrow;
@@ -31,8 +33,8 @@ public class ShipControls : MonoBehaviour {
 	private void ProcessRotation()
 	{
 		float pitch = transform.localPosition.y * positionPitchFactor + yThrow*controlPitchFactor;
-		float yaw = transform.localPosition.x * positionPitchFactor;
-		float roll = xThrow * controlPitchFactor;
+		float yaw = transform.localPosition.x * positionYawFactor;
+		float roll = xThrow * controlRollFactor;
 
 		transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
 	}
