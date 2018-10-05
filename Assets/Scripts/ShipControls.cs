@@ -6,11 +6,17 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class ShipControls : MonoBehaviour {
 
-	[Tooltip("In ms^-1")][Range(0, 8)] [SerializeField] float universalSpeed = 8f;
+	[Header("General")]
+	[Tooltip("In ms^-1")][Range(0, 8)] [SerializeField] float controlSpeed = 8f;
 	[Range(0, 5)] [SerializeField] float maxXOffset = 4f;
 	[Range(0, 5)] [SerializeField] float maxYOffset = 3f;
+	bool controlsEnabled = true;
+
+	[Header("Position-based controls")]
 	[SerializeField] float positionPitchFactor = -5f;
 	[SerializeField] float positionYawFactor = 5f;
+
+	[Header("Throw-based controls")]
 	[SerializeField] float controlPitchFactor = -30f;
 	[SerializeField] float controlRollFactor = -30f;
 
@@ -26,8 +32,11 @@ public class ShipControls : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		ProcessTranslation();
-		ProcessRotation();
+		if (controlsEnabled)
+		{
+			ProcessTranslation();
+			ProcessRotation();
+		}
 	}
 
 	private void ProcessRotation()
@@ -44,8 +53,8 @@ public class ShipControls : MonoBehaviour {
 		xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 		yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
-		float xOffset = xThrow * universalSpeed * Time.deltaTime;
-		float yOffset = yThrow * universalSpeed * Time.deltaTime;
+		float xOffset = xThrow * controlSpeed * Time.deltaTime;
+		float yOffset = yThrow * controlSpeed * Time.deltaTime;
 
 		float rawXPos = transform.localPosition.x + xOffset;
 		float rawYPos = transform.localPosition.y + yOffset;
@@ -55,8 +64,8 @@ public class ShipControls : MonoBehaviour {
 		transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void DisableControls()  //called by string reference
 	{
-		print("Player ship triggered something!");
+		controlsEnabled = false;
 	}
 }
