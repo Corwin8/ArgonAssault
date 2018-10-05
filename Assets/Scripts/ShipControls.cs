@@ -54,4 +54,9 @@ public class ShipControls : MonoBehaviour {
 
 		transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		print("Player ship triggered something!");
+	}
 }
