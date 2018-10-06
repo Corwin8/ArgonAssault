@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour {
+
+	float restartDelay = 2f;
+	[SerializeField] GameObject deathFX;
 
 	// Use this for initialization
 	void Start () {
@@ -23,5 +27,13 @@ public class CollisionHandler : MonoBehaviour {
 	{
 		print("Player dying.");
 		SendMessage("DisableControls");
+		deathFX.SetActive(true);
+		Invoke("RestartAfterDeath", restartDelay);
 	}
+
+	private void RestartAfterDeath() //called by string reference
+	{
+		SceneManager.LoadScene(0);
+	}
+
 }
