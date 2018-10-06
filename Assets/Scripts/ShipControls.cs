@@ -46,27 +46,20 @@ public class ShipControls : MonoBehaviour {
 	{
 		if (CrossPlatformInputManager.GetButton("Fire1"))
 		{
-			ActivateGuns();
+			ActivateGuns(true);
 		}
 		else
 		{
-			DeativateGuns();
+			ActivateGuns(false);
 		}
 	}
 
-	private void DeativateGuns()
+	private void ActivateGuns(bool isActive)
 	{
 		foreach (GameObject gun in guns)
 		{
-			gun.SetActive(false);
-		}
-	}
-
-	private void ActivateGuns()
-	{
-		foreach (GameObject gun in guns)
-		{
-			gun.SetActive(true);
+			var fireParticle = gun.GetComponent<ParticleSystem>().emission;
+			fireParticle.enabled = isActive;
 		}
 	}
 
