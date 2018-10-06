@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplashScreen : MonoBehaviour {
+public class MusicPlayer : MonoBehaviour {
 
 	// Use this for initialization
 
 	void Awake()
 	{
-		DontDestroyOnLoad(gameObject);
+		int numOfMusicPlayers = FindObjectsOfType<MusicPlayer>().Length;
+
+		if (numOfMusicPlayers > 1)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			DontDestroyOnLoad(gameObject);
+		}
 	}
 
 	void Start ()
