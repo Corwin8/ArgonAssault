@@ -401,15 +401,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4062552498046966, guid: c0095d17c5136a040bb133a254459390, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -120.9
+      value: -165.8
       objectReference: {fileID: 0}
     - target: {fileID: 4062552498046966, guid: c0095d17c5136a040bb133a254459390, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 232.5
+      value: 204.8
       objectReference: {fileID: 0}
     - target: {fileID: 4062552498046966, guid: c0095d17c5136a040bb133a254459390, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 31.9
+      value: 11.7
       objectReference: {fileID: 0}
     - target: {fileID: 4062552498046966, guid: c0095d17c5136a040bb133a254459390, type: 2}
       propertyPath: m_LocalRotation.x
@@ -440,6 +440,16 @@ Prefab:
       propertyPath: parent
       value: 
       objectReference: {fileID: 891065131}
+    - target: {fileID: 114940850034250852, guid: c0095d17c5136a040bb133a254459390,
+        type: 2}
+      propertyPath: scorePerHit
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114940850034250852, guid: c0095d17c5136a040bb133a254459390,
+        type: 2}
+      propertyPath: scorePerEnemy
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0095d17c5136a040bb133a254459390, type: 2}
   m_IsPrefabAsset: 0
@@ -1088,6 +1098,7 @@ GameObject:
   - component: {fileID: 1832856690}
   - component: {fileID: 1832856692}
   - component: {fileID: 1832856691}
+  - component: {fileID: 1832856693}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1153,6 +1164,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1832856689}
   m_CullTransparentMesh: 0
+--- !u!114 &1832856693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1832856689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5045ed093bc80e64bafb21cc34629c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2001193442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,12 +1220,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

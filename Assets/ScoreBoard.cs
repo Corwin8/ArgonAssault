@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour {
 
 	int score;
-	int scorePerHit = 12;
 	Text scoreText;
 
 	// Use this for initialization
@@ -18,9 +17,9 @@ public class ScoreBoard : MonoBehaviour {
 	
 	// Update is called once per frame
 
-	public void SetScore()
+	public void SetScore(int scoreIncrease)
 	{
-		score = score + scorePerHit;
+		score = score + scoreIncrease;
 		scoreText.text = score.ToString();
 	}
 }

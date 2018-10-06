@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour {
 
 	[SerializeField] GameObject enemyDeathFX;
 	[SerializeField] Transform parent;
+	[SerializeField] int scorePerEnemy = 12;
+
+	ScoreBoard scoreBoard;
 
 	GameObject deathFX;
 	Collider enemyCollider;
@@ -15,6 +18,7 @@ public class Enemy : MonoBehaviour {
 	void Start ()
 	{
 		AddNonTriggerBoxCollider();
+		scoreBoard = FindObjectOfType<ScoreBoard>();
 	}
 
 	private void AddNonTriggerBoxCollider()
@@ -32,6 +36,7 @@ public class Enemy : MonoBehaviour {
 	{
 		deathFX = Instantiate(enemyDeathFX, transform.position, Quaternion.identity);
 		deathFX.transform.parent = parent;
+		scoreBoard.SetScore(scorePerEnemy);
 		Destroy(gameObject);
 	}
 }
