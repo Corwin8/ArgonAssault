@@ -545,6 +545,36 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198738320913310618, guid: 05654fa356db15d41866f8c9ecd74094,
+        type: 2}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198139854457605384, guid: 05654fa356db15d41866f8c9ecd74094,
+        type: 2}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198738320913310618, guid: 05654fa356db15d41866f8c9ecd74094,
+        type: 2}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198139854457605384, guid: 05654fa356db15d41866f8c9ecd74094,
+        type: 2}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198738320913310618, guid: 05654fa356db15d41866f8c9ecd74094,
+        type: 2}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198139854457605384, guid: 05654fa356db15d41866f8c9ecd74094,
+        type: 2}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05654fa356db15d41866f8c9ecd74094, type: 2}
   m_IsPrefabAsset: 0
