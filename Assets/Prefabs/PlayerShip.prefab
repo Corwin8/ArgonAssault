@@ -334,6 +334,7 @@ MonoBehaviour:
   guns:
   - {fileID: 1502796378889240}
   - {fileID: 1137651343340546}
+  playerWeaponDamage: 25
   positionPitchFactor: -5
   positionYawFactor: 5
   controlPitchFactor: -30

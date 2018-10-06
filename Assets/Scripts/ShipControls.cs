@@ -11,6 +11,7 @@ public class ShipControls : MonoBehaviour {
 	[Range(0, 5)] [SerializeField] float maxXOffset = 4f;
 	[Range(0, 5)] [SerializeField] float maxYOffset = 3f;
 	[SerializeField] GameObject[] guns;
+	public int playerWeaponDamage = 10;
 	bool controlsEnabled = true;
 
 	[Header("Position-based controls")]

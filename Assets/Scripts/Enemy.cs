@@ -8,7 +8,10 @@ public class Enemy : MonoBehaviour {
 	[SerializeField] GameObject enemyDeathFX;
 	[SerializeField] Transform parent;
 	[SerializeField] int scorePerEnemy = 12;
+	[SerializeField] int enemyHP = 100;
 
+	ShipControls shipControls;
+	GameObject playerShip;
 	ScoreBoard scoreBoard;
 
 	GameObject deathFX;
@@ -17,8 +20,15 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		GetReferenceToPlayerDamage();
 		AddNonTriggerBoxCollider();
 		scoreBoard = FindObjectOfType<ScoreBoard>();
+	}
+
+	private void GetReferenceToPlayerDamage()
+	{
+		playerShip = GameObject.Find("PlayerShip");
+		shipControls = playerShip.GetComponent<ShipControls>();
 	}
 
 	private void AddNonTriggerBoxCollider()
@@ -33,6 +43,20 @@ public class Enemy : MonoBehaviour {
 	}
 
 	private void OnParticleCollision(GameObject other)
+	{
+		ProcessHit();
+		if (enemyHP <= 0)
+		{
+			KillEnemy();
+		}
+	}
+
+	private void ProcessHit()
+	{
+		enemyHP = enemyHP - shipControls.playerWeaponDamage;
+	}
+
+	private void KillEnemy()
 	{
 		deathFX = Instantiate(enemyDeathFX, transform.position, Quaternion.identity);
 		deathFX.transform.parent = parent;
