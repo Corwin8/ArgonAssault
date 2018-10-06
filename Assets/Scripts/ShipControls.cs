@@ -7,9 +7,10 @@ using UnityStandardAssets.CrossPlatformInput;
 public class ShipControls : MonoBehaviour {
 
 	[Header("General")]
-	[Tooltip("In ms^-1")][Range(0, 8)] [SerializeField] float controlSpeed = 8f;
+	[Tooltip("In ms^-1")] [Range(0, 8)] [SerializeField] float controlSpeed = 8f;
 	[Range(0, 5)] [SerializeField] float maxXOffset = 4f;
 	[Range(0, 5)] [SerializeField] float maxYOffset = 3f;
+	[SerializeField] GameObject[] guns;
 	bool controlsEnabled = true;
 
 	[Header("Position-based controls")]
@@ -36,6 +37,35 @@ public class ShipControls : MonoBehaviour {
 		{
 			ProcessTranslation();
 			ProcessRotation();
+			ProcessFiring();
+		}
+	}
+
+	private void ProcessFiring()
+	{
+		if (CrossPlatformInputManager.GetButton("Fire1"))
+		{
+			ActivateGuns();
+		}
+		else
+		{
+			DeativateGuns();
+		}
+	}
+
+	private void DeativateGuns()
+	{
+		foreach (GameObject gun in guns)
+		{
+			gun.SetActive(false);
+		}
+	}
+
+	private void ActivateGuns()
+	{
+		foreach (GameObject gun in guns)
+		{
+			gun.SetActive(true);
 		}
 	}
 
